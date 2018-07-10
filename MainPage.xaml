@@ -1,0 +1,55 @@
+﻿<Page
+    x:Class="GU.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:GU"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.Resources>
+        <DataTemplate x:Key="imageListView" x:DataType="local:ImageModel">
+            <Image Name="myImage" Source="{Binding Image}"
+                   Stretch="UniformToFill" Margin="0 2.5"></Image>
+        </DataTemplate>
+
+    </Page.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        
+        <ListView Grid.Column="0" Padding="-10 0" 
+                  ItemClick="image_Click" 
+                  IsItemClickEnabled="True"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Center" ItemsSource="{x:Bind image}"
+                  ItemTemplate="{StaticResource imageListView}"
+                  Name="myListView1">
+
+        </ListView>
+       
+        <ListView Grid.Column="1" Padding="-10 0" 
+                  ItemClick="image_Click" 
+                  IsItemClickEnabled="True"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Center" ItemsSource="{x:Bind image}"
+                  ItemTemplate="{StaticResource imageListView}"
+                  Name="myListView2">
+
+        </ListView>
+
+        <ListView Grid.Column="2" Padding="-10 0" 
+                  ItemClick="image_Click" 
+                  IsItemClickEnabled="True"
+                  HorizontalAlignment="Center" 
+                  VerticalAlignment="Center" ItemsSource="{x:Bind image}"
+                  ItemTemplate="{StaticResource imageListView}"
+                  Name="myListView3">
+        </ListView>
+
+    </Grid>
+</Page>
